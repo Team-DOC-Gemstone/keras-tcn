@@ -8,7 +8,7 @@ def run_task():
 
     model = compiled_tcn(return_sequences=False,
                          num_feat=1,
-                         num_classes=10,
+                         num_classes=2,
                          nb_filters=20,
                          kernel_size=6,
                          dilations=[2 ** i for i in range(9)],
@@ -24,7 +24,7 @@ def run_task():
 
     model.summary()
 
-    model.fit(x_train, y_train.squeeze().argmax(axis=1), epochs=100,
+    model.fit(x_train, y_train.squeeze().argmax(axis=1), epochs=10,
               validation_data=(x_test, y_test.squeeze().argmax(axis=1)))
 
 
